@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import css from "./MovieCast.module.css";
 import Loader from "../Loader/Loader";
+import useTmdbApi from "../../hook/useHookApi";
 
 const MovieCast = () => {
   const { fetchCast } = useTmdbApi();
