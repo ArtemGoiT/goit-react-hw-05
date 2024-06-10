@@ -85,11 +85,7 @@ const MovieDetailsPage = () => {
               Reviews
             </NavLink>
           </div>
-          <Link
-            to={goBackRef.current}
-            className={css.goBack}
-            onClick={() => window.history.back()}
-          >
+          <Link to={goBackRef.current} className={css.goBack}>
             Go Back
           </Link>
         </div>
