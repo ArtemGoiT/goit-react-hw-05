@@ -1,12 +1,12 @@
 import axios from "axios";
 import toast from "react-hot-toast";
-
+const token = import.meta.env.VITE_REACT_APP_TOKEN;
 class TmdbApi {
   constructor() {
     this.tmdbApi = axios.create({
       baseURL: "https://api.themoviedb.org/3",
       params: {
-        api_key: import.meta.env.VITE_REACT_APP_TOKEN,
+        api_key: token,
       },
     });
   }
