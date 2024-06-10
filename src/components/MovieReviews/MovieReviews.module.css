@@ -12,8 +12,8 @@
 }
 
 .reviewsList {
-  display: flex; /* Заменим column-count на flex для более простого управления */
-  flex-wrap: wrap; /* Позволим элементам переноситься на новую строку */
+  display: flex;
+  flex-wrap: wrap;
   gap: 16px;
   list-style: none;
   padding: 0;
@@ -24,13 +24,13 @@
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  flex: 1 1 calc(50% - 16px); /* Распределение по две колонки на больших экранах */
+  flex: 1 1 calc(50% - 16px);
   transition: transform 0.3s;
 }
 
 .reviewItem:hover {
-  transform: translateY(-5px); /* Сдвигаем элемент вверх при наведении */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Увеличиваем тень при наведении */
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 .reviewHeader {
