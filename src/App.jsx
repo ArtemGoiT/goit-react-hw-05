@@ -1,5 +1,6 @@
-import css from "./App.css";
+import css from "./App.module.css";
 import Navigation from "./components/Navigation/Navigation";
+import AppRoutes from "./routes/AppRoutes";
 
 const App = () => {
   return (

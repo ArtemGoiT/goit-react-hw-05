@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { Toaster } from "react-hot-toast";
 import MovieList from "../../components/MovieList/MovieList";
-import useHookApi from "../../hook/useHookApi";
 import css from "./HomePage.module.css";
+import useTmdbApi from "../../hook/useTmdbApi";
 
 const HomePage = () => {
-  const { fetchTrendingMovies } = useHookApi();
+  const { fetchTrendingMovies } = useTmdbApi();
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {

@@ -6,12 +6,15 @@ const Loader = () => {
     <div className={css.loaderWrapper}>
       <FidgetSpinner
         visible={true}
-        height="80"
-        width="80"
+        height={80}
+        width={80}
+        color="#007bff" // Пример цвета
+        secondaryColor="#6c757d" // Пример вторичного цвета
+        radius={40} // Пример размера
+        speed={0.8} // Пример скорости анимации
         ariaLabel="fidget-spinner-loading"
-        wrapperStyle={{}}
-        wrapperClass="fidget-spinner-wrapper"
       />
+      <p className={css.loaderText}>Загрузка...</p>
     </div>
   );
 };

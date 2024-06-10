@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Loader from "../Loader/Loader";
 import css from "./MovieReviews.module.css";
-import useTmdbApi from "../../hook/useHookApi";
+import useTmdbApi from "../../hook/useTmdbApi";
 const stripHtmlTags = (html) => {
   const tempElement = document.createElement("div");
   tempElement.innerHTML = html;

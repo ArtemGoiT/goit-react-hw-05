@@ -1,19 +1,19 @@
 import axios from "axios";
 import toast from "react-hot-toast";
 
-class MoveApi {
+class TmdbApi {
   constructor() {
-    this.MoveApi = axios.create({
+    this.tmdbApi = axios.create({
       baseURL: "https://api.themoviedb.org/3",
       params: {
-        api_key: import.meta.env.VITE_REACT_APP_TMDB_KEY,
+        api_key: import.meta.env.VITE_REACT_APP_TMDB_API_KEY,
       },
     });
   }
 
-  async fetchMoviess() {
+  async fetchMovies() {
     try {
-      const response = await this.MoveApi.get("/trending/movie/day");
+      const response = await this.tmdbApi.get("/trending/movie/day");
       return response.data.results;
     } catch (error) {
       toast.error("Error fetching trending movies: ", error);
@@ -21,18 +21,9 @@ class MoveApi {
     }
   }
 
-  async fetchMovieId(id) {
+  async fetchMovieById(id) {
     try {
-      const response = await this.MoveApi.get(`/movie/${id}`);
-      return response.data;
-    } catch (error) {
-      toast.error(`Error fetching movie with ID ${id}: `, error);
-      throw error;
-    }
-  }
-  async fetchCast(id) {
-    try {
-      const response = await this.MoveApi.get(`/movies/${id}/credits`);
+      const response = await this.tmdbApi.get(`/movie/${id}`);
       return response.data;
     } catch (error) {
       toast.error(`Error fetching movie with ID ${id}: `, error);
@@ -40,18 +31,29 @@ class MoveApi {
     }
   }
 
-  async fetchReviews(id) {
+  async fetchCast(id) {
     try {
-      const response = await this.MoveApi.get(`/movies/${id}/reviews`);
+      const response = await this.tmdbApi.get(`/movie/${id}/credits`);
       return response.data;
     } catch (error) {
-      toast.error(`Error fetching movie with ID ${id}: `, error);
+      toast.error(`Error fetching cast for movie with ID ${id}: `, error);
       throw error;
     }
   }
-  async fetchMovieQuery(query) {
+
+  async fetchReviews(id) {
     try {
-      const response = await this.Moveapi.get("/search/movie", {
+      const response = await this.tmdbApi.get(`/movie/${id}/reviews`);
+      return response.data;
+    } catch (error) {
+      toast.error(`Error fetching reviews for movie with ID ${id}: `, error);
+      throw error;
+    }
+  }
+
+  async fetchMovieByQuery(query) {
+    try {
+      const response = await this.tmdbApi.get("/search/movie", {
         params: { query },
       });
       const results = response.data.results;
@@ -64,4 +66,5 @@ class MoveApi {
     }
   }
 }
-export default MoveApi;
+
+export default TmdbApi;

@@ -2,12 +2,13 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import css from "./MovieCast.module.css";
 import Loader from "../Loader/Loader";
-import useTmdbApi from "../../hook/useHookApi";
+import useTmdbkApi from "../../hook/useTmdbApi";
 
 const MovieCast = () => {
-  const { fetchCast } = useTmdbApi();
+  const { fetchCast } = useTmdbkApi();
   const { movieId } = useParams();
   const [cast, setCast] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -16,21 +17,24 @@ const MovieCast = () => {
         setCast(data);
       } catch (error) {
         console.error("Error fetching movie cast:", error);
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchData();
   }, [fetchCast, movieId]);
-  if (!cast) {
+
+  if (loading) {
     return <Loader />;
   }
 
   return (
     <div className={css.imagesContainer}>
       <h3 className={css.header}>Cast</h3>
-      {cast && cast.cast && cast.cast.length > 0 ? (
+      {cast && cast.length > 0 ? (
         <ul className={css.castList}>
-          {cast.cast.slice(0, 10).map((actor) => (
+          {cast.slice(0, 10).map((actor) => (
             <li key={actor.id} className={css.castItem}>
               {actor.profile_path ? (
                 <img

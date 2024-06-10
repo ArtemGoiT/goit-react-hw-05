@@ -6,7 +6,7 @@ import {
   useLocation,
   useParams,
 } from "react-router-dom";
-import useHookApi from "../../hook/useHookApi";
+import useTmdbApi from "../../hook/useTmdbApi";
 import { useEffect, useRef, useState } from "react";
 import Loader from "../../components/Loader/Loader";
 import { Toaster } from "react-hot-toast";
@@ -14,7 +14,7 @@ import css from "./MovieDetailsPage.module.css";
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
-  const { fetchMovieById } = useHookApi();
+  const { fetchMovieById } = useTmdbApi();
   const [movie, setMovie] = useState(null);
 
   const location = useLocation();

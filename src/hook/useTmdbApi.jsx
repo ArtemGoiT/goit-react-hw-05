@@ -1,10 +1,10 @@
 import { useState, useCallback } from "react";
-import MoveApi from "../api/api";
+import TmdbApi from "../api/api";
 
 let tmdbApiInstance = null;
 
-const useHookApi = () => {
-  tmdbApiInstance ??= new MoveApi();
+const useTmdbApi = () => {
+  tmdbApiInstance ??= new TmdbApi();
   const [errorMessage, setErrorMessage] = useState(null);
 
   const fetchTrendingMovies = useCallback(async (setData) => {
@@ -66,4 +66,4 @@ const useHookApi = () => {
   };
 };
 
-export default useHookApi;
+export default useTmdbApi;

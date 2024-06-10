@@ -35,7 +35,8 @@
 }
 
 .movieCard:hover {
-  transform: scale(1.05);
+  transform: translateY(-5px); /* Сдвигаем карточку вверх при наведении */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Увеличиваем тень при наведении */
 }
 
 .link {
@@ -44,12 +45,6 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-}
-
-.cardContent {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
 }
 
 .imgRateContainer {
