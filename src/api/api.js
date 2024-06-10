@@ -6,7 +6,7 @@ class TmdbApi {
     this.tmdbApi = axios.create({
       baseURL: "https://api.themoviedb.org/3",
       params: {
-        api_key: import.meta.env.VITE_REACT_APP_API_KEY,
+        api_key: import.meta.env.VITE_REACT_APP_TOKEN,
       },
     });
   }
